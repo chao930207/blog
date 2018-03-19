@@ -19,7 +19,7 @@ public class GetConnection {
                 System.out.println("加载驱动程序有错误");  
             }  
   
-            String url = "jdbc:mysql://39.106.126.222:3306/article?user=lchao&password=123456";  
+            String url = "";  
             
             conn = (Connection) DriverManager.getConnection(url);  
             System.out.println("成功连接数据库！！");  
