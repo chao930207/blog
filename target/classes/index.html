@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>login</title>
+	
+	<link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	
+</head>
+<body>
+
+	<div class="container-fluid">
+		<form class="form-horizontal">
+		
+			<div class="form-row">
+			
+				<div class="col-md-3 mb-3">
+					<label for="name">name</label>
+					<input type="text" class="form-control" id="name" />
+				</div>
+				
+				<div class="col-md-3 mb-3">
+					<label for="password">password</label>
+					<input type="password" class="form-control" id="password" />
+				</div>
+			
+			</div>
+			
+			<div class="form-row">
+			
+				<div class="col-md-2 md-mb-3">
+					<button class="btn btn-success" id="login" type="button" onclick="loginU()">
+						login
+					</button>
+				</div>
+				
+			</div>
+			
+			<div class="form-row">
+				
+				<div class="col-md-3 mb-3">
+					<label for="nameR">nameR</label>
+					<input type="text" class="form-control" id="nameR" />
+				</div>
+				
+			</div>
+			
+			<div class="form-row">
+				<div class="col-md-2">
+					<button class="btn btn-success" id="register" type="button" onclick="registerU()">
+						register
+					</button>
+				</div>
+			</div>
+			
+			<div class="form-row">
+			
+				<div class="col-md-3 mb-3">
+					<label for="nameQ">nameQ</label>
+					<input type="text" class="form-control" id="nameQ" />
+				</div>
+				
+			</div>
+			
+			<div class="form-row">
+				<div class="col-md-2">
+					<button class="btn btn-success" id="query" type="button" onclick="queryU()">
+						query
+					</button>
+				</div>
+			</div>
+		
+		</form>
+	</div>
+
+	<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
+	<script src="js/index.js"></script>
+</body>
+</html>
