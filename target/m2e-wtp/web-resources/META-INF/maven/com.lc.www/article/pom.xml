@@ -33,6 +33,8 @@
     <fileupload.version>1.3.1</fileupload.version>
     <fileupload.io.version>2.4</fileupload.io.version>
     <fileupload.codec.version>1.9</fileupload.codec.version>
+    <!-- jedis version -->
+    <jedis.version>2.7.3</jedis.version>
     
   </properties>
   
@@ -209,6 +211,13 @@
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
         <version>${fileupload.codec.version}</version>
+    </dependency>
+    
+    <!-- jedis -->
+    <dependency>
+    	<groupId>redis.clients</groupId>
+    	<artifactId>jedis</artifactId>
+    	<version>${jedis.version}</version>
     </dependency>
     
   </dependencies>

@@ -1,9 +1,12 @@
 package com.lc.www.service.impl;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lc.www.dao.User.UserDao;
+import com.lc.www.dao.cacheDao.RedisDao;
 import com.lc.www.pojo.User;
 import com.lc.www.service.UserService;
 
@@ -12,14 +15,25 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	RedisDao redisDao;
 
 	public boolean checkUserExistsByName(String name) {
 		boolean result = false;
 		
-		User user = userDao.checkUserExistsByName(name);
+		Map<String, String> redisData = redisDao.getData("name" + name);
 		
-		if (user != null)
-			return true;
+		if (redisData.get("result") == null) {
+			User user = userDao.checkUserExistsByName(name);
+			
+			if (user != null) {
+				result = true;
+				redisDao.putData("name" + name, name);
+			}
+		} else {
+			result = true;
+		}
 		
 		return result;
 	}
