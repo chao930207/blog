@@ -30,8 +30,18 @@ public class UserControllerImpl implements UserController {
 		
 		if (existsFlag)
 			result.put("exists", "1");
-		else
+		else {
 			result.put("exists", "0");
+			User user = new User();
+			user.setName(name);
+			user.setPassword(CommonUtil.getMD5("123456"));
+			int insert_number = userService.insertUserOneData(user);
+			if (insert_number != 1) {
+				result.put("message", "register has an error");
+			} else {
+				result.put("message", "register successful");
+			}
+		}
 		
 		return result;
 	}
@@ -50,9 +60,10 @@ public class UserControllerImpl implements UserController {
 			
 			if (correctFlag) {
 				result.put("status", "1");
+				result.put("message", "login successful");
 			} else {
 				result.put("status", "2");
-				result.put("message", "user name or password is wrong!");
+				result.put("message", "user name or password is wrong");
 			}
 		} else {
 			result.put("status", "0");
@@ -68,7 +79,12 @@ public class UserControllerImpl implements UserController {
 		
 		User user = userService.queryUserData(name);
 		
-		result.put("user", user.toString());
+		if (user == null) {
+			result.put("null", "1");
+			result.put("user", "not find");
+		} else {
+			result.put("user", user.toString());
+		}
 		
 		return result;
 	}

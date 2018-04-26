@@ -1,5 +1,7 @@
 package com.lc.www.util;
 
+import java.util.UUID;
+
 import org.springframework.util.DigestUtils;
 
 public class CommonUtil {
@@ -14,4 +16,9 @@ public class CommonUtil {
 		
 		return md5;
 	}
+	
+	public static String getUUID32() {
+		return UUID.randomUUID().toString().replace("-", "");
+	}
+	
 }

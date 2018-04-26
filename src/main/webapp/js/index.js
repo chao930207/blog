@@ -19,21 +19,16 @@ function loginU() {
 		timeout : 5000,
 		dataType : 'json',
 		beforeSend : function(xhr) {
-			console.log(xhr)
-			console.log('发送前')
 		},
 		success : function(data, textStatus, jqXHR) {
 			console.log(data)
-			console.log(textStatus)
-			console.log(jqXHR)
+			var $show = $("#show-text")
+			$show.empty()
+			$show.html(data["message"])
 		},
 		error : function(xhr, textStatus) {
-			console.log('错误')
-			console.log(xhr)
-			console.log(textStatus)
 		},
 		complete : function() {
-			console.log('结束')
 		}
 	})
 }
@@ -51,21 +46,22 @@ function registerU() {
 		timeout : 5000, //超时时间
 		dataType : 'json', //返回的数据格式：json/xml/html/script/jsonp/text
 		beforeSend : function(xhr) {
-			console.log(xhr)
-			console.log('发送前')
 		},
 		success : function(data, textStatus, jqXHR) {
 			console.log(data)
-			console.log(textStatus)
-			console.log(jqXHR)
+			if (data["exists"] == 1) {
+				var $show = $("#show-text")
+				$show.empty()
+				$show.html("user has existsed")
+			} else {
+				var $show = $("#show-text")
+				$show.empty()
+				$show.html(data["message"])
+			}
 		},
 		error : function(xhr, textStatus) {
-			console.log('错误')
-			console.log(xhr)
-			console.log(textStatus)
 		},
 		complete : function() {
-			console.log('结束')
 		}
 	})
 }
@@ -83,21 +79,22 @@ function queryU() {
 		timeout : 5000, //超时时间
 		dataType : 'json', //返回的数据格式：json/xml/html/script/jsonp/text
 		beforeSend : function(xhr) {
-			console.log(xhr)
-			console.log('发送前')
 		},
 		success : function(data, textStatus, jqXHR) {
-			console.log(data)
-			console.log(textStatus)
-			console.log(jqXHR)	
+			var rsData = data
+			if (rsData["null"] == null) {
+				var $show = $("#show-text")
+				$show.empty()
+				$show.html(rsData["user"])
+			} else {
+				var $show = $("#show-text")
+				$show.empty()
+				$show.html("not find")
+			}
 		},
 		error : function(xhr, textStatus) {
-			console.log('错误')
-			console.log(xhr)
-			console.log(textStatus)
 		},
 		complete : function() {
-			console.log('结束')
 		}
 	})
 }

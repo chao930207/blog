@@ -9,4 +9,6 @@ public interface UserService {
 	public boolean validateUserData(User user);
 	
 	public User queryUserData(String userName);
+	
+	public int insertUserOneData(User user);
 }

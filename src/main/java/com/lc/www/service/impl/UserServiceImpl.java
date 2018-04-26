@@ -53,4 +53,8 @@ public class UserServiceImpl implements UserService {
 		return userDao.queryUserData(userName);
 	}
 
+	public int insertUserOneData(User user) {
+		return userDao.insertUserOneData(user);
+	}
+
 }

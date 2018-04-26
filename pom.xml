@@ -35,6 +35,8 @@
     <fileupload.codec.version>1.9</fileupload.codec.version>
     <!-- jedis version -->
     <jedis.version>2.7.3</jedis.version>
+    <!-- protostuff version -->
+    <protostuff.version>1.0.8</protostuff.version>
     
   </properties>
   
@@ -218,6 +220,18 @@
     	<groupId>redis.clients</groupId>
     	<artifactId>jedis</artifactId>
     	<version>${jedis.version}</version>
+    </dependency>
+    
+    <!-- protostuff -->
+    <dependency>
+    	<groupId>com.dyuproject.protostuff</groupId>
+    	<artifactId>protostuff-core</artifactId>
+    	<version>${protostuff.version}</version>
+    </dependency>
+    <dependency>
+    	<groupId>com.dyuproject.protostuff</groupId>
+    	<artifactId>protostuff-runtime</artifactId>
+    	<version>${protostuff.version}</version>
     </dependency>
     
   </dependencies>
